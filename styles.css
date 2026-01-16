@@ -97,6 +97,52 @@ img {
     display: block;
 }
 
+/* =============================================
+   IMAGE OPTIMIZATION & LOADING STATES
+   ============================================= */
+img {
+    /* Prevent layout shift */
+    background-color: #f0f0f0;
+
+    /* Smooth transitions */
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Loading state - blur effect */
+img.img-loading {
+    filter: blur(10px);
+    opacity: 0.6;
+}
+
+/* Loaded state - crisp and clear */
+img.img-loaded {
+    filter: blur(0);
+    opacity: 1;
+}
+
+/* Error state */
+img.img-error {
+    opacity: 0.3;
+    filter: grayscale(100%);
+}
+
+/* Lazy loading placeholder */
+img[loading="lazy"]:not([src]) {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
 ul {
     list-style: none;
 }
@@ -156,30 +202,26 @@ ul {
 /* Responsive corner logos */
 @media (max-width: 1024px) {
     .corner-logo img {
-        height: 120px;
-        padding: 8px;
+        height: 100px;
+        padding: 6px;
+        border: 2px solid #87CEEB;
+    }
+
+    .corner-logo-left {
+        left: 15px;
+        top: 15px;
+    }
+
+    .corner-logo-right {
+        right: 15px;
+        top: 15px;
     }
 }
 
 @media (max-width: 768px) {
     .corner-logo img {
-        height: 90px;
-        padding: 6px;
-    }
-
-    .corner-logo-left {
-        left: 20px;
-    }
-
-    .corner-logo-right {
-        right: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .corner-logo img {
-        height: 65px;
-        padding: 5px;
+        height: 70px;
+        padding: 4px;
         border-radius: 10px;
     }
 
@@ -191,6 +233,19 @@ ul {
     .corner-logo-right {
         right: 10px;
         top: 10px;
+    }
+}
+
+/* Hide corner logos on very small screens to prevent overlap */
+@media (max-width: 600px) {
+    .corner-logos {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .corner-logos {
+        display: none;
     }
 }
 
@@ -336,44 +391,78 @@ ul {
 /* Mobile Navigation for Modern Nav */
 @media (max-width: 900px) {
     .modern-nav {
-        padding: 10px 20px;
-        padding-right: 70px;
+        padding: 8px 18px;
+        padding-right: 65px;
+        top: 15px;
     }
 
     .modern-nav ul {
-        gap: 20px;
+        gap: 15px;
     }
 
     .modern-nav ul li button {
-        font-size: 13px;
+        font-size: 12px;
     }
 }
 
 @media (max-width: 700px) {
     .modern-nav {
         top: 10px;
-        padding: 8px 15px;
-        padding-right: 60px;
+        padding: 6px 12px;
+        padding-right: 55px;
         max-width: 95%;
+        border-radius: 30px;
     }
 
     .modern-nav ul {
-        gap: 12px;
+        gap: 10px;
     }
 
     .modern-nav ul li button {
-        font-size: 11px;
+        font-size: 10px;
+        line-height: 18px;
     }
 
     .profile-btn {
-        width: 35px;
-        height: 35px;
-        right: 12px;
+        width: 32px;
+        height: 32px;
+        right: 10px;
     }
 
     .profile-btn svg {
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* Extra small screens - compact navbar */
+@media (max-width: 500px) {
+    .modern-nav {
+        top: 8px;
+        padding: 5px 10px;
+        padding-right: 50px;
+        max-width: 96%;
+        border-radius: 25px;
+    }
+
+    .modern-nav ul {
+        gap: 8px;
+    }
+
+    .modern-nav ul li button {
+        font-size: 9px;
+        line-height: 16px;
+    }
+
+    .profile-btn {
+        width: 28px;
+        height: 28px;
+        right: 8px;
+    }
+
+    .profile-btn svg {
+        width: 12px;
+        height: 12px;
     }
 }
 
