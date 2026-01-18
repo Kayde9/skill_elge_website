@@ -487,3 +487,51 @@ function initLazyLoading() {
 
 // Initialize lazy loading if images have data-src
 document.addEventListener('DOMContentLoaded', initLazyLoading);
+
+/* =============================================
+   EVENT MODAL FUNCTIONS
+   ============================================= */
+function openEventModal(eventId) {
+    const modal = document.getElementById('event-modal');
+    const modalBody = document.getElementById('modal-body');
+    const eventDetails = document.getElementById(eventId + '-details');
+    
+    if (modal && modalBody && eventDetails) {
+        modalBody.innerHTML = eventDetails.innerHTML;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // Animate modal
+        setTimeout(() => {
+            modal.classList.add('active');
+        }, 10);
+    }
+}
+
+function closeEventModal() {
+    const modal = document.getElementById('event-modal');
+    
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(e) {
+    const modal = document.getElementById('event-modal');
+    if (e.target === modal) {
+        closeEventModal();
+    }
+});
+
+// Close modal with ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeEventModal();
+    }
+});

@@ -1,0 +1,27 @@
+EVENT POSTER INSTRUCTIONS
+========================
+
+To add your workshop poster:
+
+1. Save your event poster image as: python-workshop-poster.jpg
+   (or .png format)
+
+2. Place it in this Images folder:
+   c:\Users\KEVINDEEP SINGH\OneDrive\Desktop\SKILLELGE_WEB\Images\
+
+3. Recommended dimensions: 800x400 pixels (2:1 aspect ratio)
+
+4. If no poster is uploaded, a placeholder will be shown automatically.
+
+Current poster filename expected: python-workshop-poster.jpg
+
+Note: You can also use design tools like:
+- Canva (canva.com) - Free templates available
+- Adobe Express (express.adobe.com)
+- Microsoft Designer (designer.microsoft.com)
+
+Poster should include:
+- Event name
+- Date (19-20 JAN)
+- Technologies (React, Django, Python)
+- NMIMS/SKILL ELGE branding
